@@ -19,5 +19,14 @@ public class GreetingController {
 		// this is the string of the view to be used
 		return "hi";
 	}
+	
+	@RequestMapping(value="/sayHi")
+	public String whatever(Model model) {
+		
+		model.addAttribute("words", "hey hey");
+		
+		// can include nested path
+		return "greetings/hello";
+	}
 
 }
