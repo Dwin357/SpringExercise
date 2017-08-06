@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>I'm nested</h1>
-	<p>dynamic</p>
-	<p>${words}</p>
-	
-	<p>in the session</p>
-	<p>your goal is ${goal.lifeGoal}</p>
-
+	<p>welcome to the duck show</p>
+	<!-- can't seem to pull atrib off the model, not clear whats wrong here -->
+	<p>duck says ${theNumber}</p>
 </body>
 </html>
