@@ -34,3 +34,21 @@ Errors
  ASM Class reader failed to parse file
   - java 8 requires spring 4 (which breaks on my Maven)
   --> use source/target 1.7 in maven builder and spring 3.x.x
+  
+Reset Counter = 2
+
+the tutoraial adds the following dependencies
+ - mysql 5.1.21
+ - hibernate-entitymanager 4.1.9.Final
+ - jta 1.1
+ - spring-jdbc 3.2.0.RELEASE
+ - spring-orm 3.2.0.RELEASE
+ 
+I am trying to add the following
+ - postgresql (I want to use pg)
+ - spring-jdbc 3.2.6.RELEASE (needs to match my current spring webmvc)
+ - spring-rom 3.2.6.RELEASE
+ - hibernate-entitiymanager 4.1.9.Final
+ - jta 1.1
+ 
+after adding something in here, it corrupts my dependancies and tomcat fails to launch
