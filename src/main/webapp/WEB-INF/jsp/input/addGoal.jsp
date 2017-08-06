@@ -42,8 +42,8 @@
 				<td><form:input path="age" cssErrorClass="error" />
 				<td></td>
 			</tr>
-			<tr colspan="3">
-				<td>
+			<tr>
+				<td colspan="3">
 					<input type="submit" value="yes" />
 				</td>
 			</tr>
