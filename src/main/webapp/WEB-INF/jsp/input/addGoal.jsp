@@ -7,17 +7,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<!-- obviously this should be in a css file -->
+
+<style>
+	.error {
+		color: #ff0000;
+	}
+	
+	.errorBlock {
+		color: #000;
+		background-color: #ffeeee;
+		boarder: 3px solid #ff0000;
+		padding: 8px;
+		margin: 16px;
+	}
+</style>
+
+
 </head>
 <body>
 	<p>Good to have goals</p>
 	
 	<form:form commandName="goal" >
+		<form:errors path="*" element="div" cssClass="errorBlock" />
 		<table>
 			<tr>
 				<td>Enter Your Goal</td>
 				<td><form:input path="lifeGoal"/></td>
+				<td><form:errors path="lifeGoal" cssClass="error" /></td>
 			</tr>
-			<tr colspan="2">
+			<tr>
+				<td>Enter Your Age</td>
+				<td><form:input path="age" cssErrorClass="error" />
+				<td></td>
+			</tr>
+			<tr colspan="3">
 				<td>
 					<input type="submit" value="yes" />
 				</td>

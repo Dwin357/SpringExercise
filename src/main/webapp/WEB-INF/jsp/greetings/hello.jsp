@@ -13,6 +13,7 @@
 	
 	<p>in the session</p>
 	<p>your goal is ${goal.lifeGoal}</p>
+	<p>your age is ${goal.age }</p>
 
 </body>
 </html>
