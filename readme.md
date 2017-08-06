@@ -46,9 +46,21 @@ the tutoraial adds the following dependencies
  
 I am trying to add the following
  - postgresql (I want to use pg)
- - spring-jdbc 3.2.6.RELEASE (needs to match my current spring webmvc)
- - spring-rom 3.2.6.RELEASE
+ x spring-jdbc 3.2.6.RELEASE (needs to match my current spring webmvc)
+ x spring-rom 3.2.6.RELEASE
  - hibernate-entitiymanager 4.1.9.Final
- - jta 1.1
+ x jta 1.1
  
 after adding something in here, it corrupts my dependancies and tomcat fails to launch
+after rebuilding, dep are always dropped from build path (maven update after each add)
+
+ WORKS :: add spring-orm & spring-jdbc
+ WORKS :: jta
+ FAILS :: postgres :: org.postgresql	postgresql	42.1.4.jre7 
+ WORKS :: hibernate
+ 
+ -- installing mysql, see if that gets around the problem
+ 
+ installed mySql workbench
+ !!! added SpringExerciseDatabase (for project)
+ 
