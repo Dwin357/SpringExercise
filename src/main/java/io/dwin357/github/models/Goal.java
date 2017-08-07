@@ -1,9 +1,20 @@
 package io.dwin357.github.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
+@Entity
+@Table(name="goals")
 public class Goal {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
 
 	@NotBlank
 	private String lifeGoal;
@@ -29,6 +40,14 @@ public class Goal {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

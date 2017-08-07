@@ -20,6 +20,31 @@ Server
 	 - the facet "dynamic web app" must be selected (min java 1.6)
 	 	*if "dynamic web app" doesn't appear as an option, you need to add java-ee to IDE
 
+========== backend ===========
+
+pom - dep
+ - spring-orm (version should match webmvc)
+ - spring-jdbc (version should match webmvc)
+ - jta
+ - hibernate-entity-manager
+ - mysql-connector-java (pg breaks *sad*)
+
+Sv, mvn update, verify it deploys to tomcat / still works
+	 
+META-INF
+	- add dir under src/main/resources
+	- add persistence.xml (copy paste) :: ! version must align JPA	
+web.xml
+  - add context param pointing at your context file
+  - pull in spring listener to load backend
+jpaContext.xml
+  - add in src/main/resources (or wherever designated by web.xml)
+  - use spring-IDE (new bean config file :: add tx, beans, context)
+  - add context annotation and persistenceSupport-bean
+	 	 	
+DB
+	using db admin tool, make db table !!! the maven plugin for pg breaks, so forced to use mysql
+
 Errors
  - java.lang.classexception "org.spring..." not found
  --> need to add maven dependencies to build path (RC -> properties -> DeploymentAssemblies -> add)
@@ -35,32 +60,6 @@ Errors
   - java 8 requires spring 4 (which breaks on my Maven)
   --> use source/target 1.7 in maven builder and spring 3.x.x
   
-Reset Counter = 2
-
-the tutoraial adds the following dependencies
- - mysql 5.1.21
- - hibernate-entitymanager 4.1.9.Final
- - jta 1.1
- - spring-jdbc 3.2.0.RELEASE
- - spring-orm 3.2.0.RELEASE
- 
-I am trying to add the following
- - postgresql (I want to use pg)
- x spring-jdbc 3.2.6.RELEASE (needs to match my current spring webmvc)
- x spring-rom 3.2.6.RELEASE
- - hibernate-entitiymanager 4.1.9.Final
- x jta 1.1
- 
-after adding something in here, it corrupts my dependancies and tomcat fails to launch
-after rebuilding, dep are always dropped from build path (maven update after each add)
-
- WORKS :: add spring-orm & spring-jdbc
- WORKS :: jta
- FAILS :: postgres :: org.postgresql	postgresql	42.1.4.jre7 
- WORKS :: hibernate
- 
- -- installing mysql, see if that gets around the problem
- 
- installed mySql workbench
- !!! added SpringExerciseDatabase (for project)
+ - when deploying to tomcat, error "nested child failed to load"
+ --> a dependency is breaking the app; add one at a time to figure out which and work around it
  
